@@ -103,13 +103,13 @@ function deconstructMagnetLink() {
 
 	for (var i = 0; i < parameters.length; i++){
 		if (parameters[i]) {
-			if(parameters[i].startsWith("magnet:?xt=urn:btih:")){
+			if (parameters[i].startsWith("magnet:?xt=urn:btih:")){
 				document.getElementById("hash").value = parameters[i].substr(20);
 			}
-			else if(parameters[i].startsWith("dn=")){
+			else if (parameters[i].startsWith("dn=")){
 				document.getElementById("name").value = decodeURIComponent(parameters[i].substr(3));
 			}
-			else if(parameters[i].startsWith("tr=")){
+			else if (parameters[i].startsWith("tr=")){
 				trackers += decodeURIComponent(parameters[i].substr(3)) + "\n";
 			}
 			else {
@@ -125,6 +125,7 @@ function deconstructMagnetLink() {
 		document.getElementById("trackers").value = trackers;
 	}
 }
+
 
 function generateMagnetLink() {
 	var magnetLink = "magnet:";
@@ -142,6 +143,7 @@ function generateMagnetLink() {
 	document.getElementById("labelmagnetlink").innerHTML = "<a href=\"" + magnetLink + "\">Magnet Link</a>";
 	document.getElementById("magnetlink").value = magnetLink;
 }
+
 
 function clearInputsAndOutputs() {
 	document.getElementById("hash").value = "";
